@@ -1,0 +1,28 @@
+--新增远程连接
+$ git remote add + 名字 + 连接地址
+-- 查看建立了哪些远程
+$ git remote -v
+
+--加入git 管理
+git add -A  
+
+git commit -m "修改一下"
+
+
+
+-- 建立本地和远程对应仓库
+…or create a new repository on the command line
+echo "# learn" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/531726110/learn.git
+git push -u origin main
+
+
+移除某个远程仓库
+…or push an existing repository from the command line
+git remote add origin https://github.com/531726110/learn.git
+git branch -M main
+git push -u origin main
