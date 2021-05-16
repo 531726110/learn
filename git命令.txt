@@ -20,6 +20,33 @@ git commit -m "修改一下"
 git status
 
 
+--查看历史记录
+git log
+git reflog
+
+版本回退
+git reset --hard + (git reflog 第一列的值)
+
+比较差异
+git diff 文件名
+git diff HEAD 文件名， 上一个版本差异
+
+创建分支
+git branch 分支名字
+
+查看在当前哪个分支
+git branch -v
+切换分支
+git checkout 分支名字
+
+合并分支
+git merge 分支名称A  将A分支合并到当前分支
+
+-- 克隆远程仓库
+git clone 地址
+
+-- 拉取远程仓库代码
+git pull  连接别名（origin） 分支名（main）  相当于 git fetch 连接别名（origin） 分支名（main） 和git  merge 连接别名（origin）/ 分支名（main）
 
 
 -- 建立本地和远程对应仓库
@@ -30,7 +57,7 @@ git add README.md
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/531726110/learn.git
-git push -u origin main
+git push -u origin main     -- 推送到远程仓库
 
 
 移除某个远程仓库
@@ -38,3 +65,16 @@ git push -u origin main
 git remote add origin https://github.com/531726110/learn.git
 git branch -M main
 git push -u origin main
+
+
+--git hub 让别人向自己仓库提交代码
+到具体仓库，然后setting,然后collaborators 输入别人账号，然后出来一个连接 复制发送给别人
+
+跨团队协作
+张三拥有库A，然后李四是另外公司的。
+李四先去fork A(克隆一个远程仓库),  然后克隆到本地，修改之后提交推送到fork出来的A
+李四然后pull requests，然后new pull request 然后create pull request
+张三登陆，然后pull requests
+
+github 忽略文件配置
+https://github.com/github/gitignore
