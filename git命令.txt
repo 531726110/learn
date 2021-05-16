@@ -4,9 +4,21 @@ $ git remote add + 名字 + 连接地址
 $ git remote -v
 
 --加入git 管理
-git add -A  
+git add -A  所有文件
+-- add之后，未commit之前撤回
+git rm --cached  123.txt
 
+
+-- 提交到本地仓库
 git commit -m "修改一下"
+
+
+修改之后再提交，也需要先add，然后再commit
+
+
+--查看git状态
+git status
+
 
 
 
