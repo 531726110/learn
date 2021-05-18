@@ -1,0 +1,14 @@
+
+select * from dba_db_links 
+
+create public database link DB_3 connect to test62 identified by Test62scm
+　　 using '(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = 10.0.44.211)(PORT = 1521))
+)
+(CONNECT_DATA =
+(SERVICE_NAME =scmtest62db)
+)
+)';
+
+drop public database link DB_3;

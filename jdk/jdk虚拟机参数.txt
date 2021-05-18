@@ -1,0 +1,10 @@
+-Xms152M -Xmx320M -XX:PermSize=152m -XX:MaxPermSize=896m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=E:\Java\dump
+-XX:+PrintGCDetails
+jps -q 输出id
+jps -m 输出给main函数参数
+jps -l 输出主类名称
+jps -v 输出启动时jvm参数
+
+jstat -gc id

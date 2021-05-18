@@ -1,0 +1,34 @@
+function getFormParameters(formId) {
+	var param = "{";
+	var formReal = new Array();
+	var form = $("#" + formId + " :input");
+	for (var i = 0; i < form.length; i++) {
+		if (form[i].name != "" && form[i].value != "" && (form[i].type == "radio" || form[i].type == "checkbox")) {
+			if (form[i].checked) {
+				formReal.push(form[i]);
+			}
+		} else {
+
+			if (form[i].name != "" && form[i].value != "" && form[i].type != "button") {
+				formReal.push(form[i]);
+			}
+		}
+	}
+	if (formReal.length > 0) {
+		for (var i = 0; i < formReal.length; i++) {
+			// alert(formReal[i].type+"AAA"+formReal[i].name+formReal[i].value);
+			if (i == formReal.length - 1) {
+				if(formReal[i].value!=null && formReal[i].value!="" && formReal[i].value!=undefined){
+					param += "\"" + formReal[i].name + "\":\"" + replaceEChar(formReal[i]) + "\"}";
+				}
+			} else {
+				if(formReal[i].value!=null && formReal[i].value && formReal[i].value!=undefined){
+					param += "\"" + formReal[i].name + "\":\"" + replaceEChar(formReal[i]) + "\",";
+				}
+			}
+		}
+	} else {
+		param += "}";
+	}
+	return JSON.parse(param);
+}

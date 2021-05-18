@@ -1,0 +1,19 @@
+<SSO>
+	<RESULT>1</RESULT>
+	<RESULT_MSG>成功</RESULT_MSG>
+	<RESULT_MSGCODE>1000</RESULT_MSGCODE>
+	<ACCOUNT>test</ACCOUNT>
+	<TICKET>E681C2A10A7991D085FAD219E6FD</TICKET>
+</SSO>
+
+上面是xml字符串
+
+
+Document document = DocumentHelper.parseText(result); //将字符先转成对象
+//获取根节点
+Element root = document.getRootElement(); //实际得到<SSO>节点
+Iterator it_1 = root.elementIterator();// 获取根节点SSO下一级所有子节点
+ while (it_1.hasNext()) {
+    Element children = (Element) it_1.next();//得到其中一个节点
+                    
+ }

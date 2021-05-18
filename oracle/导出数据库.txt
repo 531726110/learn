@@ -1,0 +1,7 @@
+exp tt_zhengshi/tt_zhengshi@192.168.0.2:1521/oracle10g file = c:/temp2.dmp tables=(scm_product,scm_product_material,scm_material_config,scm_c_measure)
+
+exp scms_tietong_t/scms_tietong_t@192.168.0.2:1521/oracle10g file = c:\interfaceTable.dmp tables=('UR_%','I_I%','i_s%','I_P%','I_M%','I_V%','I_A%') ;
+
+exp tt_zhengshi/tt_zhengshi@192.168.0.2:1521/oracle10g file = c:/temp.dmp owner=tt_zhengshi
+
+

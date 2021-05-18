@@ -1,0 +1,67 @@
+select * from dba_directories
+grant read,write on directory DUMP_DIR to scms_tietong_t
+expdp 'new217/"New2,17"' directory=DB_BAK_DIR dumpfile=scms_%u_$time.dmp logfile=scms_$time.log schemas=new217 version=12.2.0.1.0
+
+impdp scms_tietong_t/scms_tietong_t@localhost:1521/pdborcl schemas=new217 directory=dump_dir dumpfile=scms_01_202001180030.dmp REMAP_SCHEMA=zjwjqwsj:scms_tietong_t logfile=20170215.log
+
+--将当前用户的所有权限给用户B
+grant all privileges to B；
+alter session set container = pdborcl
+--查看属于哪个容器
+select sys_context('USERENV','CON_NAME') from dual; 
+create user scms_tietong_t identified by scms_tietong_t
+
+grant resource,dba,connect to scms_tietong_t
+
+
+
+create directory DUMP_DIR as 'D:\dump\dir';
+
+
+ccreate user SCMS_TT_T identified by SCMS_TT_T default tablespace SCM;
+
+select default_tablespace,temporary_tablespace from dba_users
+
+select *  from user_tablespaces
+
+select username,default_tablespace from user_users;
+
+SELECT COUNT(*) FROM B_SYSTEM_LOG_bak
+
+ccreate user SCMS_TT_T identified by SCMS_TT_T default tablespace SCM;
+
+select default_tablespace,temporary_tablespace from dba_users
+
+select *  from user_tablespaces
+
+select username,default_tablespace from user_users;
+
+SELECT COUNT(*) FROM B_SYSTEM_LOG_bak
+
+
+imp tt_zhengshi3/tt_zhengshi3@192.168.1.30:1521/orcl file=‪C:\Users\123\Desktop\scms.dmp full=y ignore = y
+
+select file_name,round(bytes/(1024*1024),0) from dba_data_files where tablespace_name = 'SCMs'
+
+select tablespace_name,file_name,autoextensible from dba_data_files 
+
+  
+  drop user scms_tietong_t cascade
+  
+  create user tt_zhengshi3 identified by tt_zhengshi3 default tablespace  scms
+  
+  grant resource,dba,connect to tt_zhengshi3
+  
+ 
+  
+  alter user tt_zhengshi3 identified by tt_zhengshi3;
+  
+  alter session set container = pdborcl
+  
+select * from s_privilege_user
+
+select count(*) from scm_product_material
+
+update s_privilege_user where login_password = 1
+
+drop user tt_zhengshi3 cascade;
