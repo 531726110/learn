@@ -1,0 +1,36 @@
+切换docker数据源
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://skwspnrt.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+docker日常命令
+docker images 查看有哪些镜像
+docker search tomcat 搜索tomcat镜像的版本
+docker pull 镜像 获取镜像
+docker rmi img_id 删除镜像
+
+
+docker ps 查看正在运行的
+docker ps -a 显示所有容器，包含未运行的
+docker ps -l 显示最后一次创建的容器
+docker run -it 创建一个新的容器，并进入容器内部
+docker run -d 创建一个后台运行的容器
+docker run --name 容器名字（自己取）
+docker stop id   停止容器
+docker logs id  查看容器的打印
+docker exec -it id    进入后台运行的容器 例子：docker exec -it tomcat /bin/bash
+docker command -help  查看docker有哪些命令
+docker run -d -p 5000:500 后台运行容器，并且宿主机5000端口，对应容器500端口
+docker run -d -P 随机端口映射
+docker rm id id id 批量移除容器
+docker inspect 容器名称 查看docker底层信息
+
+数据卷
+docker run -d -p 8080:8080 -v $PWD:容器工作目录  创建容器，并以宿主机当前目录作为工作目录
+
+docker compose down 

@@ -1,0 +1,13 @@
+﻿
+ubuntu安装docker
+curl -sSL https://get.daocloud.io/docker | sh
+//切换数据源后更新软件包
+apt-get update
+
+让非root用户使用docker
+sudo usermod -aG docker 用户名
+然后重启docker
+service docker restart
+再重新登录用户
+
+chown -R root:root docker-compose  改变文件所属组
