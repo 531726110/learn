@@ -1,0 +1,10 @@
+
+
+相关操作：	
+     1. 进入DOS
+     2. 跳转到cxf安装包路径下
+		D:\Java\openSource\apache-cxf-2.4.1\bin
+		命令：
+			D: 
+			cd java\openSource\apache-cxf-2.4.1\bin
+			wsdl2java -p com.cmcc.soa.osb_bp_soa_hq_importbatchcontsnroutesrv【包名】 -d D:\test【生成文件位置】 -all D:\java\cxf\OSB_BP_SOA_HQ_InquiryServiceTokenSrv.wsdl【wsdl文件位置】

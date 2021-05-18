@@ -1,0 +1,13 @@
+
+-- 查询表空间可用，最后一个字段为可用大小，单位M
+SELECT file_name AS 数据文件, tablespace_name AS 表空间名称,
+       autoextensible AS 自动扩展, status AS 状态, maxbytes AS 可扩展最大值,
+       user_bytes AS 已使用大小, increment_by AS 自动扩展增量,(maxbytes-user_bytes)/1024/1024
+  FROM dba_data_files
+ WHERE tablespace_name = 'SCMS'
+
+-- 增加表空间,xxxx为文件名称，自行修改
+
+ALTER TABLESPACE SCMS ADD DATAFILE
+'/oracle/oradata/SCMDB/datafile/xxxxxx.dbf' SIZE 500M
+AUTOEXTEND ON NEXT 100M;

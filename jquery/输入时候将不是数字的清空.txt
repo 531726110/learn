@@ -1,0 +1,10 @@
+function clearNum(e) {
+	var inputNumber = $(e).val();
+	if (inputNumber.length == 1) { 
+		inputNumber = inputNumber.replace(/[^1-9]/g, '');
+		$(e).val(inputNumber);
+	} else {
+		inputNumber = inputNumber.replace(/\D/g, '');
+		$(e).val(inputNumber);
+	}
+}

@@ -1,0 +1,32 @@
+//最大连接
+select value from v$parameter where name ='processes'
+当前连接数
+select count(*) from v$process  
+//解锁当前用户下被锁的表
+alter user ttscms_d account unlock;
+
+// 回收站被删的表
+select * from user_recyclebin;
+// 恢复被删的表
+FLASHBACK TABLE SCM_BUY_RESULT_DETAIL TO BEFORE DROP;
+//恢复被delete的数据
+select * from tableName AS OF TIMESTAMP  (SYSTIMESTAMP - INTERVAL '100' MINUTE)
+--当前连接数
+select count(*) from v$process;
+
+--最大连接数量
+select value from v$parameter where name = 'processes';
+
+
+-Xms152M -Xmx320M -XX:PermSize=152m -XX:MaxPermSize=896m
+
+--查看死锁进程
+select b.owner,b.object_name,l.session_id,l.locked_mode 
+from v$locked_object l, dba_objects b 
+where b.object_id=l.object_id ;
+-----
+select t2.username,t2.sid,t2.serial#,t2.logon_time 
+from v$locked_object t1,v$session t2 
+where t1.session_id=t2.sid order by t2.logon_time; 
+-----
+alter system kill session '1003,21646';

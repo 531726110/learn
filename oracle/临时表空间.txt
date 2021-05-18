@@ -1,0 +1,35 @@
+
+select tablespace_name,file_id,file_name,bytes/1024/1024 Mbytes,bytes/1024/1024/1024 G from dba_temp_files;
+
+
+--重建temp
+
+1.创建中转临时表空间
+
+create temporary tablespace  TEMP1 TEMPFILE 'E:\ORACLE\ORADATA\ORCL9\temp02.DBF' SIZE 512M REUSE AUTOEXTEND ON NEXT  1M MAXSIZE UNLIMITED;  
+
+2.改变缺省临时表空间为刚刚创建的新临时表空间temp1
+
+alter database default  temporary tablespace  temp1;
+
+3.删除原来临时表空间
+
+drop tablespace temp including contents and datafiles;
+
+4.重新创建临时表空间
+
+create temporary tablespace  TEMP TEMPFILE 'E:\ORACLE\ORADATA\ORCL9\temp01.DBF' SIZE 512M REUSE AUTOEXTEND ON NEXT  1M MAXSIZE UNLIMITED;  
+
+5.重置缺省临时表空间为新建的temp表空间
+
+alter database default  temporary tablespace  temp;
+
+6.删除中转用临时表空间
+
+drop tablespace temp1 including contents and datafiles;
+
+7.如果有必要，那么重新指定用户表空间为重建的临时表空间
+
+alter user arbor temporary tablespace  temp; 
+
+ 

@@ -1,0 +1,15 @@
+ABCD三个表ACD多对多，抽出一张B
+
+B表存ACD的三个id
+
+  /*
+     * 通知人员
+     */
+    @ManyToMany(targetEntity = C.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "B表", joinColumns = { @JoinColumn(name = "A.id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "C.id", referencedColumnName = "id") })
+    private List<User> noticeUsers = new ArrayList();
+
+
+    @ManyToMany(targetEntity = D.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "B表", joinColumns = { @JoinColumn(name = "A.id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "D.id", referencedColumnName = "id") })
+    private List<User> noticeUsers = new ArrayList();

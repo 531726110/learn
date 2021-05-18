@@ -1,0 +1,5 @@
+cd /etc/apt/
+sudo cp sources.list sources.list.bak ## 备份系统自带的source列表
+## 选择合适的镜像源，如阿里云的镜像 http://mirrors.aliyun.com/ubuntu
+sudo sed -i 's/^\(deb\|deb-src\) \([^ ]*\) \(.*\)/\1 http:\/\/mirrors.aliyun.com\/ubuntu \3/' sources.list
+sudo apt-get update
