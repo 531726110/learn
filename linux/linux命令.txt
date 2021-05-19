@@ -1,1 +1,2 @@
 1£ºps -ef | grep redis ËÑË÷redis ½ø³Ì
+2£ºnetstat -natp
