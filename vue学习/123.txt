@@ -1,0 +1,27 @@
+子组件：<cpn ref="aa"></cpn>
+拿子组件：
+$.children
+当待 ref时候 $.refs
+
+$parent 父组件
+$root 根组件
+
+--具名插槽
+<div>
+<slot name="bbb"></slot>
+</div>
+
+<cpn><button slot="bbb"></button></cpn>
+
+--作用域插槽
+<div>
+<slot :data="子组件的data里面的值"></slot>
+</div>
+<cpn><div slot-scope="slot">{{slot.data.xxx}}</div></cpn>
+
+ES6导入导出
+export default xxxx 一个js文件只能一个
+
+import {a} from aa.js // 导入a变量
+import a from aa.js  //导入default的变量
+import * as aa from aa.js //导入所有变量放入aa对象
