@@ -1,0 +1,3 @@
+http://mvn.coderead.cn/
+
+https://maven.aliyun.com
