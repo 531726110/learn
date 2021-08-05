@@ -30,6 +30,10 @@ docker run -d -P 随机端口映射
 docker rm id id id 批量移除容器
 docker inspect 容器名称 查看docker底层信息
 docker state 监控cpu，内存使用
+docker network ls 查看docker网络
+docker network create --driver bridge --subnet=172.18.12.0/16 --gateway=172.18.1.1 mynet    
+				--subnet子网 ，gateway 网关
+
 
 数据卷
 docker run -d -p 8080:8080 -v $PWD:容器工作目录  创建容器，并以宿主机当前目录作为工作目录
